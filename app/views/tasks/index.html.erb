@@ -1,0 +1,16 @@
+<h1>My Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= form_for(task) do |t| %>
+      <div class="field">
+        <%= t.check_box :completed %>
+        <%= link_to task.title , task_path(task) %>
+        <%= link_to @bin, task_delete_path(task), method: 'delete', data: {confirm: 'Are you sure?' }  %>
+      </div>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+
